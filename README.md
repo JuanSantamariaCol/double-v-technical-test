@@ -96,7 +96,6 @@ Se utiliza para notificaciones y operaciones que no requieren respuesta inmediat
 
 ---
 
-
 ## 4. Estrategia de Persistencia
 
 ### ¿Qué datos van en Oracle (transaccionales)?
@@ -121,7 +120,13 @@ Esto da la ventaja de que el dominio es fácilmente testeable, se pueden cambiar
 - Models: definen DTOs o ViewModels para requests/responses, distintos a las entidades del dominio.
 - Views: son las respuestas JSON serializadas.
 
-
 ## 6. Diagrama de alto nivel 
 ![diagrama](diagrama.png)
 
+## 7. Implementación
+Se desarrollaron los tres microservicios principales (customers, invoices y audits) de forma funcional y desacoplada, aplicando los patrones arquitectónicos definidos:
+- Outbox Pattern implementado en customers-service e invoices-service para garantizar la publicación confiable de eventos.
+- Comunicación síncrona (REST) validada entre invoices-service y customers-service para la verificación de clientes antes de la creación de facturas.
+- Infraestructura lista para integración con Broker (por ejemplo, RabbitMQ o Kafka) y Dispatchers responsables de la publicación periódica de los eventos almacenados en la tabla outbox_messages (customers, invoices).
+- Pruebas unitarias y de integración realizadas de forma individual por servicio, asegurando independencia y consistencia de las funcionalidades principales.
+Cada microservicio cuenta con un Dockerfile optimizado para despliegue en producción y un docker-compose.yml para entornos de desarrollo o pruebas locales, permitiendo levantar rápidamente todo el entorno distribuido.
