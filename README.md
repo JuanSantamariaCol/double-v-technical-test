@@ -2,13 +2,13 @@
 
 ## 1. Microservicios Principales
 
-### [@customers-service (Ruby on Rails)](https://github.com/JuanSantamariaCol/double-v-customers)
+### [customers-service (Ruby on Rails)](https://github.com/JuanSantamariaCol/double-v-customers)
 Servicio encargado de la gestión de clientes del sistema.
 
-### [@invoices-service (.NET Core)](https://github.com/JuanSantamariaCol/double-v-invoices)
+### [invoices-service (.NET Core)](https://github.com/JuanSantamariaCol/double-v-invoices)
 Servicio responsable de la gestión de facturas y facturación electrónica.
 
-### [@audits-service (Ruby on Rails)](https://github.com/JuanSantamariaCol/double-v-audits)
+### [audits-service (Ruby on Rails)](https://github.com/JuanSantamariaCol/double-v-audits)
 Servicio dedicado a la auditoría y trazabilidad de eventos del sistema.
 
 ---
@@ -123,5 +123,5 @@ Esto da la ventaja de que el dominio es fácilmente testeable, se pueden cambiar
 
 
 ## 6. Diagrama de alto nivel 
-![diagrama](./diagrama.png)
+![diagrama](diagrama.png)
 
